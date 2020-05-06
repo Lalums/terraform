@@ -1,0 +1,2 @@
+In development environment with all partners in the same environment there needs to be 10 vms out of which 8 are Linux and 2 are Windows
+Hardening tip: Change default SSH port and RDP ports using Ansible
