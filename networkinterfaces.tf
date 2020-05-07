@@ -2,7 +2,7 @@
 
 # 8 Nics to be assigned to Management subnemycordavmst
 resource "azurerm_network_interface" "mynics" {
-  count = 3
+  count = 1
   name                      = "cordanic${count.index+1}"
   location                  = "${var.location}"
   resource_group_name       = "${azurerm_resource_group.myresourcegroup.name}"
@@ -17,7 +17,7 @@ resource "azurerm_network_interface" "mynics" {
 
 #Create NIC for DNS VM
 resource "azurerm_network_interface" "mydnsnic" {
-  count = 3
+  count = 1
   name = "dnsnic${count.index+1}"
   location = "${azurerm_resource_group.myresourcegroup.location}"
   resource_group_name = "${azurerm_resource_group.myresourcegroup.name}"
