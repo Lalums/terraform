@@ -139,7 +139,7 @@ variable "apimSkuCount" {
 }
 
 variable "omsworkspace" {
-  default = "bcomsdev1"
+  default = "bcomsdev1sdsd"
 }
 
 variable "autoaccname" {
