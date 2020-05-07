@@ -2,7 +2,7 @@
 
 #8 public ips to be assigned to nics in corda subnet
 resource "azurerm_public_ip" "mypips1" {
-  count = 8
+  count = 1
   name                         = "${element(var.pipnames, count.index)}"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.myresourcegroup.name}"

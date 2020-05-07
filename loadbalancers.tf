@@ -1,6 +1,6 @@
  # Creating Loadbalancers for Corda Vms
  resource "azurerm_lb" "LB" {
-  count = 8
+  count = 2
   name                = "${element(var.lbNames, count.index)}"
   location            = "northeurope"
   resource_group_name = "${azurerm_resource_group.myresourcegroup.name}"
@@ -19,7 +19,7 @@ resource "azurerm_lb_backend_address_pool" "cordabackendpool" {
 
 #Rule for SSH
 resource "azurerm_lb_nat_rule" "mytcprule1" {
-count = 8
+count = 2
   resource_group_name          = "${azurerm_resource_group.myresourcegroup.name}"
   loadbalancer_id                = "${element(azurerm_lb.LB.*.id, count.index)}"
   name                           = "SSH"
@@ -32,7 +32,7 @@ count = 8
 
 #Rule for 80
 resource "azurerm_lb_nat_rule" "mytcprule2" {
-count = 8
+count = 2
   resource_group_name          = "${azurerm_resource_group.myresourcegroup.name}"
   loadbalancer_id                = "${element(azurerm_lb.LB.*.id, count.index)}"
   name                           = "Webhttp"
@@ -45,7 +45,7 @@ count = 8
 
 #Rule for AMQP
 resource "azurerm_lb_nat_rule" "mytcprule3" {
-count = 8
+count = 2
   resource_group_name          = "${azurerm_resource_group.myresourcegroup.name}"
   loadbalancer_id                = "${element(azurerm_lb.LB.*.id, count.index)}"
   name                           = "AMQP"
