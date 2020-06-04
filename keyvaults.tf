@@ -4,9 +4,7 @@ resource "azurerm_key_vault" "mykeyvault1" {
   name                = "${element(var.keyvaultnames,0)}"
   location            = "${var.location}"
   resource_group_name = "${azurerm_resource_group.myresourcegroup.name}"
-  sku {
-    name = "standard"
-  }
+  sku_name = "standard"
   tenant_id = "${var.tenant_id}"
 }
 
